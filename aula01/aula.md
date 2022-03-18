@@ -68,7 +68,13 @@ Linguagem de definição de dados
 
 ### ALTER TABLE
 
+  ALTER TABLE pessoa ADD COLUMN data_nascimento DATE;
+  ALTER TABLE endereco DROP COLUMN numero;
+
 ### DROP TABLE
+
+  DROP TABLE endereco;
+  DROP TABLE pessoa;
 
 ## DML
 
