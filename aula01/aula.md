@@ -61,7 +61,8 @@ Linguagem de definição de dados
     rua varchar(100),
     numero integer,
     cidade varchar(100),
-    cep varchar(10)
+    cep varchar(10),
+    id_pessoa integer REFERENCES pessoa(id)
   );
   
 
