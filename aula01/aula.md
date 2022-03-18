@@ -41,9 +41,15 @@ Linguagem de definição de dados
 
 ### CREATE DATABASE
 
+  CREATE DATABASE emprestimo;
+
 ### DROP DATABASE
 
+  DROP DATABASE emprestimo;
+
 ### CREATE TABLE
+
+
 
 ### ALTER TABLE
 
