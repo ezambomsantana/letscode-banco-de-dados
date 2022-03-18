@@ -49,7 +49,21 @@ Linguagem de definição de dados
 
 ### CREATE TABLE
 
-
+  CREATE TABLE pessoa (
+    id integer PRIMARY KEY,
+    nome varchar(100),
+    cpf varchar(11),
+    salario float
+  );
+  
+  CREATE TABLE endereco (
+    id integer PRIMARY KEY,
+    rua varchar(100),
+    numero integer,
+    cidade varchar(100),
+    cep varchar(10)
+  );
+  
 
 ### ALTER TABLE
 
