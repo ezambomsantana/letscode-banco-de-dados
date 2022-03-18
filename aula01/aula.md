@@ -1,5 +1,13 @@
 # Banco de Dados
 
+Armazenar e recuperar dados
+
+Bancos de dados relacionais - Tabelas e Relacionamentos
+
+Bancos de dados não relacionais - Documentos, grafos, ...
+
+PostgreSQL - Banco de dados relacional open source
+
 ## Links
 
 https://www.postgresql.org/
