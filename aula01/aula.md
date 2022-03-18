@@ -51,8 +51,8 @@ Linguagem de definição de dados
 
   CREATE TABLE pessoa (
     id integer PRIMARY KEY,
-    nome varchar(100),
-    cpf varchar(11),
+    nome varchar(100) NOT NULL,
+    cpf varchar(11) UNIQUE,
     salario float
   );
   
@@ -81,6 +81,13 @@ Linguagem de definição de dados
 Linguagem de manipulação de dados
 
 ### INSERT
+
+  INSERT INTO pessoa VALUES(1, 'Eduardo', '123', 1000);
+  INSERT INTO pessoa VALUES(2, 'Joao', '123', 1000);
+  
+  INSERT INTO pessoa(id, nome, cpf) VALUES(3, 'Maria', '234');
+  INSERT INTO pessoa(nome, cpf) VALUES('Lucas', '456');
+  INSERT INTO pessoa(cpf) VALUES('456');
 
 ### SELECT
 
