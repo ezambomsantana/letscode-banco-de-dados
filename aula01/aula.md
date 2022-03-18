@@ -10,6 +10,8 @@ https://www.elephantsql.com/
 
 https://hub.docker.com/_/postgres
 
+https://www.postgresql.org/docs/current/sql-commands.html
+
 ## Instalação com Docker
 
 docker run --name postgres-2 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
