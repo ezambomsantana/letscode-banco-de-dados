@@ -12,7 +12,7 @@ PostgreSQL - Banco de dados relacional open source
 
 https://www.postgresql.org/
 
-https://dbeaver.com/
+https://dbeaver.io/download/
 
 https://www.elephantsql.com/
 
