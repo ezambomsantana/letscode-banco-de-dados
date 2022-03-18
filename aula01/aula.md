@@ -2,8 +2,17 @@
 
 ## Links
 
-PostgreSQL - 
-DBeaver
+https://www.postgresql.org/
+
+https://dbeaver.com/
+
+https://www.elephantsql.com/
+
+https://hub.docker.com/_/postgres
+
+## Instalação com Docker
+
+docker run --name postgres-2 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
 
 ## Problema
 
@@ -18,6 +27,8 @@ Os emprestimos possuem uma quantidade de parcelas, as parcelas devem conter um v
 
 ## DDL
 
+Linguagem de definição de dados
+
 ### CREATE DATABASE
 
 ### DROP DATABASE
@@ -29,6 +40,8 @@ Os emprestimos possuem uma quantidade de parcelas, as parcelas devem conter um v
 ### DROP TABLE
 
 ## DML
+
+Linguagem de manipulação de dados
 
 ### INSERT
 
@@ -46,4 +59,4 @@ Os emprestimos possuem uma quantidade de parcelas, as parcelas devem conter um v
 
 3) Busque apenas os emprestimos que tenham mais de três parcelas.
 
-4)
+4) Faça uma consulta que some todos os valores das parcelas de um emprestimo.
