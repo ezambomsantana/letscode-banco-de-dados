@@ -50,14 +50,14 @@ Linguagem de definição de dados
 ### CREATE TABLE
 
   CREATE TABLE pessoa (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     nome varchar(100) NOT NULL,
     cpf varchar(11) UNIQUE,
     salario float
   );
   
   CREATE TABLE endereco (
-    id integer PRIMARY KEY,
+    id serial PRIMARY KEY,
     rua varchar(100),
     numero integer,
     cidade varchar(100),
@@ -91,9 +91,23 @@ Linguagem de manipulação de dados
 
 ### SELECT
 
+  select *
+  from pessoa
+  where nome like 'Eduardo'
+
 ### UPDATE
 
+  update pessoa
+  set salario = 3000;
+
+  update pessoa 
+  set salario = 5000
+  where nome like 'Eduardo';
+
 ### DELETE
+
+  delete from pessoa
+  where id = 7;
 
 ## Exercícios
 
