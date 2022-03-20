@@ -55,6 +55,20 @@
       insert into parcela(valor, num, id_emprestimo) values(2200,5,1);
       
 # Mapeamento objeto-relacional      
- 
+
+Transformar tabelas em objetos, e objetos em tabelas
+
+Antes era necessário executar os SQLs na aplicação e fazer o mapeamento manualmente
+
+Vamos fazer o mapeamento objeto-relacional das tabelas criadas no exercício anterior
+
+Hibernate, JPA, spring-data
+
+## Links
+
+https://spring.io/guides/gs/accessing-data-jpa/
+
+https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa/2.6.4
+
 
       
