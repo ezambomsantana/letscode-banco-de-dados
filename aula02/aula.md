@@ -53,5 +53,8 @@
       insert into parcela(valor, num, id_emprestimo) values(2200,3,1);
       insert into parcela(valor, num, id_emprestimo) values(2200,4,1);
       insert into parcela(valor, num, id_emprestimo) values(2200,5,1);
+      
+# Mapeamento objeto-relacional      
+ 
 
       
