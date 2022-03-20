@@ -41,40 +41,40 @@ Linguagem de definição de dados
 
 ### CREATE DATABASE
 
-  CREATE DATABASE emprestimo;
+    CREATE DATABASE emprestimo;
 
 ### DROP DATABASE
 
-  DROP DATABASE emprestimo;
+    DROP DATABASE emprestimo;
 
 ### CREATE TABLE
 
-  CREATE TABLE pessoa (
-    id serial PRIMARY KEY,
-    nome varchar(100) NOT NULL,
-    cpf varchar(11) UNIQUE,
-    salario float
-  );
-  
-  CREATE TABLE endereco (
-    id serial PRIMARY KEY,
-    rua varchar(100),
-    numero integer,
-    cidade varchar(100),
-    cep varchar(10),
-    id_pessoa integer REFERENCES pessoa(id)
-  );
+    CREATE TABLE pessoa (
+      id serial PRIMARY KEY,
+      nome varchar(100) NOT NULL,
+      cpf varchar(11) UNIQUE,
+      salario float
+    );
+
+    CREATE TABLE endereco (
+      id serial PRIMARY KEY,
+      rua varchar(100),
+      numero integer,
+      cidade varchar(100),
+      cep varchar(10),
+      id_pessoa integer REFERENCES pessoa(id)
+    );
   
 
 ### ALTER TABLE
 
-  ALTER TABLE pessoa ADD COLUMN data_nascimento DATE;
-  ALTER TABLE endereco DROP COLUMN numero;
+    ALTER TABLE pessoa ADD COLUMN data_nascimento DATE;
+    ALTER TABLE endereco DROP COLUMN numero;
 
 ### DROP TABLE
 
-  DROP TABLE endereco;
-  DROP TABLE pessoa;
+    DROP TABLE endereco;
+    DROP TABLE pessoa;
 
 ## DML
 
@@ -82,32 +82,32 @@ Linguagem de manipulação de dados
 
 ### INSERT
 
-  INSERT INTO pessoa VALUES(1, 'Eduardo', '123', 1000);
-  INSERT INTO pessoa VALUES(2, 'Joao', '123', 1000);
-  
-  INSERT INTO pessoa(id, nome, cpf) VALUES(3, 'Maria', '234');
-  INSERT INTO pessoa(nome, cpf) VALUES('Lucas', '456');
-  INSERT INTO pessoa(cpf) VALUES('456');
+    INSERT INTO pessoa VALUES(1, 'Eduardo', '123', 1000);
+    INSERT INTO pessoa VALUES(2, 'Joao', '123', 1000);
+
+    INSERT INTO pessoa(id, nome, cpf) VALUES(3, 'Maria', '234');
+    INSERT INTO pessoa(nome, cpf) VALUES('Lucas', '456');
+    INSERT INTO pessoa(cpf) VALUES('456');
 
 ### SELECT
 
-  select *
-  from pessoa
-  where nome like 'Eduardo'
+    select *
+    from pessoa
+    where nome like 'Eduardo'
 
 ### UPDATE
 
-  update pessoa
-  set salario = 3000;
+    update pessoa
+    set salario = 3000;
 
-  update pessoa 
-  set salario = 5000
-  where nome like 'Eduardo';
+    update pessoa 
+    set salario = 5000
+    where nome like 'Eduardo';
 
 ### DELETE
 
-  delete from pessoa
-  where id = 7;
+    delete from pessoa
+    where id = 7;
 
 ## Exercícios
 
