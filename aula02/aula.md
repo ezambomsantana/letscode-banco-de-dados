@@ -27,7 +27,7 @@
           valor float NOT NULL,
           num varchar(11) UNIQUE,
           status varchar(100) not null default 'ABERTO',
-          data_patagamento TIMESTAMP,
+          data_pagamento TIMESTAMP,
           id_emprestimo integer references emprestimo(id)
         );
 
