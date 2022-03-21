@@ -9,7 +9,8 @@
           id serial PRIMARY KEY,
           nome varchar(100) NOT NULL,
           cpf varchar(11) UNIQUE,
-          salario float CHECK(salario > 0)
+          salario float CHECK(salario > 0),
+          endereco varchar(100) not null
         );
 
          create table emprestimo (
