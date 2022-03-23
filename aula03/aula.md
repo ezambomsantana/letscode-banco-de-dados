@@ -24,3 +24,6 @@
 
     @Query("SELECT new br.com.letscode.emprestimo.model.PessoaSalario(AVG(p.salario), endereco) FROM pessoa AS p GROUP BY endereco")
     List<PessoaSalario> getMediaSalarioObjeto();
+
+
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
