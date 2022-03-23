@@ -4,8 +4,6 @@
 
 ### Consultas pelo nome dos campos
 
-Consultas pelo nome dos campos, por exemplo:
-
     Pessoa pessoa findByName(String name);
   
     List<Emprestimo> findByDataEmprestimoGreaterThan(LocalDateTime data);
