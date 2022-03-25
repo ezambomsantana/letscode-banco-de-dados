@@ -1,6 +1,7 @@
 package br.com.letscode.emprestimo;
 
 import br.com.letscode.emprestimo.service.EmprestimoService;
+import br.com.letscode.emprestimo.service.PessoaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,4 +14,13 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 
+
+    @Bean
+    public CommandLineRunner demo(PessoaService pessoaService) {
+        return (args) -> {
+
+            pessoaService.usePredicate();
+
+        };
+    }
 }

@@ -18,4 +18,10 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Integer>
 
     List<Emprestimo> findByDataEmprestimoBetween(LocalDateTime dataInicio, LocalDateTime dataFim);
 
+
+    // ordenacao
+
+
+
+
 }
