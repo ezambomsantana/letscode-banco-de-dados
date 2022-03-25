@@ -18,7 +18,7 @@ O valor total deve ser calculado a partir da lista de produtos passados.
 
 ## GET /compra
 
-Lista todas as compras disponíveis. Essa rota deve permitir paginação e conter um filtro por cpf do client.
+Lista todas as compras disponíveis. Essa rota deve permitir paginação e conter um filtro por cpf do cliente.
 
 
 # Outros Requisitos
