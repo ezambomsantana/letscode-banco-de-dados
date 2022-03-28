@@ -69,12 +69,12 @@ public class EmprestimoService {
 
         System.out.println("-------");
 
-        pessoas = pessoaRepository.findByCpf("1234");
-        pessoas.forEach(p -> System.out.println(p.getId() + " " + p.getNome()));
+        //pessoas = pessoaRepository.findByCpf("1234");
+       // pessoas.forEach(p -> System.out.println(p.getId() + " " + p.getNome()));
 
 
-        pessoas = pessoaRepository.findByNome("Eduardo");
-        pessoas.forEach(p -> System.out.println(p.getId() + " " + p.getNome()));
+       // pessoas = pessoaRepository.findByNome("Eduardo");
+       // pessoas.forEach(p -> System.out.println(p.getId() + " " + p.getNome()));
 
         System.out.println("------");
 

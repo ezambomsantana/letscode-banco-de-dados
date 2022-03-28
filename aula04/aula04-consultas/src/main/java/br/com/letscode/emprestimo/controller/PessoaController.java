@@ -1,15 +1,13 @@
 package br.com.letscode.emprestimo.controller;
 
+import br.com.letscode.emprestimo.dto.PessoaBuscaDTO;
 import br.com.letscode.emprestimo.dto.PessoaDTO;
-import br.com.letscode.emprestimo.model.Pessoa;
 import br.com.letscode.emprestimo.service.PessoaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,15 +18,35 @@ public class PessoaController {
 
     private final PessoaService pessoaService;
 
-    @GetMapping("/")
-    public List<PessoaDTO> listPessoas() {
-        return pessoaService.listAll();
+    @GetMapping()
+    public Page<PessoaDTO> listPessoas(
+            @RequestParam(name = "nome") List<String> nome,
+            Pageable pageable) {
+        return pessoaService.listAll(nome, pageable);
     }
 
-    @GetMapping(path = "/page")
-    Page<PessoaDTO> listPessoasPage(@PageableDefault(value = 10, page = 0) Pageable pageable) {
+    @GetMapping("/busca")
+    public List<PessoaDTO> listPessoas(
+            PessoaBuscaDTO dto) {
+        return pessoaService.specification(dto);
+    }
+
+    @GetMapping("/page")
+    public Page<PessoaDTO> listPessoas(Pageable pageable) {
         return pessoaService.listAll(pageable);
     }
+
+    @PostMapping("/")
+    public PessoaDTO criarPessoa(@RequestBody PessoaDTO pessoa) {
+        return pessoaService.criarPessoa(pessoa);
+    }
+
+    @DeleteMapping("/{cpf}")
+    public void deletePessoa(@PathVariable String cpf) {
+        pessoaService.deletePessoa(cpf);
+    }
+
+
 
 
 }

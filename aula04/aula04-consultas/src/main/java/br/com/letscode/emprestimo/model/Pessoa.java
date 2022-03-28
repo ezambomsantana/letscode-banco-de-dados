@@ -1,5 +1,6 @@
 package br.com.letscode.emprestimo.model;
 
+import br.com.letscode.emprestimo.dto.PessoaDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,8 +30,17 @@ public class Pessoa {
     @Column(name = "endereco")
     private String endereco;
 
-    @ManyToMany(mappedBy = "pessoas", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "pessoas", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Emprestimo> emprestimos;
 
+
+    public static Pessoa convert(PessoaDTO dto) {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(dto.getNome());
+        pessoa.setSalario(dto.getSalario());
+        pessoa.setCpf(dto.getCpf());
+        pessoa.setEndereco(dto.getEndereco());
+        return pessoa;
+    }
 
 }
