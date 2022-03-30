@@ -18,6 +18,18 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "id_pessoa")
+    private Pessoa pessoa;
+
+    @ManyToMany
+    @JoinTable(
+            name = "pessoa_pessoa",
+            joinColumns = { @JoinColumn(name = "id_pessoa") },
+            inverseJoinColumns = { @JoinColumn(name = "id_pessoa") }
+    )
+    private List<Pessoa> pessoas;
+
     @Column(name = "nome")
     private String nome;
 

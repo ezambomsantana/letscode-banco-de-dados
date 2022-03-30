@@ -65,22 +65,4 @@ public class PessoaRepositoryTests {
         Assertions.assertEquals("Eduardo", parcelas.get(0).getNomePessoa());
     }
 
-
-    @Test
-    public void testCreatePessoa() {
-        //given
-        Object pessoa = new Object();
-
-        //when
-
-
-        // pessoaRepository.save(pessoa);
-
-        //then
-
-    }
-
-
-
-
 }

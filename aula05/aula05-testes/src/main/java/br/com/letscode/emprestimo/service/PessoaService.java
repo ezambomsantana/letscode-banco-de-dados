@@ -45,6 +45,12 @@ public class PessoaService {
         return PessoaDTO.convert(pessoaBD);
     }
 
+    public void deletePessoa(String cpf) {
+        Pessoa pessoa = pessoaRepository.findByCpf(cpf)
+                .orElseThrow(() -> new RuntimeException());
+        pessoaRepository.delete(pessoa);
+    }
+
 
 
 
@@ -92,9 +98,27 @@ public class PessoaService {
     }
 
 
-    public void deletePessoa(String cpf) {
-        Pessoa pessoa = pessoaRepository.findByCpf(cpf)
-                .orElseThrow(() -> new RuntimeException());
-        pessoaRepository.delete(pessoa);
+    public List<PessoaDTO> queryPessoaSpecification(PessoaBuscaDTO pessoaBuscaDTO) {
+
+        Specification<Pessoa> specification = Specification.where(null);
+
+        if (pessoaBuscaDTO.getNome() != null) {
+            specification = specification.and(PessoaSpecification.filterByName(pessoaBuscaDTO.getNome()));
+        }
+
+        if (pessoaBuscaDTO.getEndereco() != null) {
+            specification = specification.and(PessoaSpecification.filterByEndereco(pessoaBuscaDTO.getEndereco()));
+        }
+
+        if (pessoaBuscaDTO.getSalario() != null) {
+            specification = specification.and(PessoaSpecification.filterBySalarioGreaterThan(pessoaBuscaDTO.getSalario()));
+        }
+
+        return pessoaRepository
+                .findAll(specification)
+                .stream()
+                .map(PessoaDTO::convert)
+                .collect(Collectors.toList());
+
     }
 }

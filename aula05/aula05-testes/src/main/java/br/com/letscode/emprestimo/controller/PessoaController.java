@@ -2,6 +2,7 @@ package br.com.letscode.emprestimo.controller;
 
 import br.com.letscode.emprestimo.dto.PessoaBuscaDTO;
 import br.com.letscode.emprestimo.dto.PessoaDTO;
+import br.com.letscode.emprestimo.model.Pessoa;
 import br.com.letscode.emprestimo.service.PessoaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -38,6 +39,11 @@ public class PessoaController {
     @DeleteMapping("/{cpf}")
     public void deletePessoa(@PathVariable String cpf) {
         pessoaService.deletePessoa(cpf);
+    }
+
+    @GetMapping("/busca")
+    public List<PessoaDTO> buscaPessoa(PessoaBuscaDTO pessoaBuscaDTO) {
+        return pessoaService.queryPessoaSpecification(pessoaBuscaDTO);
     }
 
 
