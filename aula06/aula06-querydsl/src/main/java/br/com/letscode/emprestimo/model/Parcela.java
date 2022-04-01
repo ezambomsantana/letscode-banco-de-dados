@@ -10,22 +10,17 @@ import java.time.LocalDateTime;
 @Setter
 @Entity(name = "parcela")
 public class Parcela {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @Column(name = "valor")
     private Float valor;
-
-    @Column(name = "num")
-    private Integer num;
-
-    @Column(name = "data_pagamento")
-    private LocalDateTime dataPagamento;
-
     @Column(name = "status")
     private String status;
+    @Column(name = "num")
+    private Integer num;
+    @Column(name = "data_pagamento")
+    private LocalDateTime dataPagamento;
 
     @ManyToOne
     @JoinColumn(name = "id_emprestimo")
