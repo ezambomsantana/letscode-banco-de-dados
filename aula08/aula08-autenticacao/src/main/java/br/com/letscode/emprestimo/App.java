@@ -25,12 +25,13 @@ public class App {
 
     @Bean
     public CommandLineRunner test(UserRepository userRepository,
-                                  AuthorityRepository authorityRepository) {
+                                  AuthorityRepository authorityRepository,
+                                  PasswordEncoder encoder) {
         return (args) -> {
 
             User user = new User();
-            user.setUserName("user5");
-            user.setPassword("{bcrypt}" + new BCryptPasswordEncoder().encode("user5"));
+            user.setUserName("user8");
+            user.setPassword(encoder.encode("user8"));
             user.setEnabled(true);
 
             userRepository.save(user);
