@@ -1,0 +1,1 @@
+ALTER TABLE emprestimo ADD COLUMN teste3 varchar;
