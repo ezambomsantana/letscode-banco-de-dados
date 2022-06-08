@@ -177,3 +177,43 @@ Linguagem de manipulação de dados
 
       
 
+
+
+
+    CREATE TABLE cliente (
+        id integer PRIMARY KEY,
+        nome varchar(100) NOT NULL,
+        cpf varchar(11) UNIQUE,
+        salario float NOT NULL,
+        endereco varchar(100)
+    );
+
+    CREATE TABLE emprestimo (
+        id integer PRIMARY KEY,
+        valor_total float NOT NULL,
+        quantidade_parcela integer NOT NULL,
+        data_emprestimo TIMESTAMP
+    );
+
+    CREATE TABLE cliente_emprestimo (
+        id_cliente integer,
+        id_emprestimo integer,
+        PRIMARY KEY(id_cliente, id_emprestimo),
+        FOREIGN KEY ce_cliente(id_cliente) REFERENCES cliente(id),
+        FOREIGN KEY ce_emprestimo(id_emprestimo) REFERENCES emprestimo(id)
+    );
+
+    CREATE TABLE parcela (
+        id integer PRIMARY KEY,
+        valor float NOT NULL,
+        data_pagamento TIMESTAMP,
+        num_sequencial integer NOT NULL,
+        id_emprestimo integer NOT NULL,
+        FOREIGN KEY parcela_emprestimo(id_emprestimo) REFERENCES emprestimo(id)
+    );
+
+
+
+
+
+
