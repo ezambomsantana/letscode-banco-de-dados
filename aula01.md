@@ -170,12 +170,7 @@ Linguagem de manipulação de dados
       insert into parcela(valor, num, id_emprestimo) values(2200,3,1);
       insert into parcela(valor, num, id_emprestimo) values(2200,4,1);
       insert into parcela(valor, num, id_emprestimo) values(2200,5,1);
-      
-## Links
-
-https://spring.io/guides/gs/accessing-data-jpa/
-
-https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa/2.6.4
+     
 
 
       
