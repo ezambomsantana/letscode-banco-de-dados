@@ -237,6 +237,48 @@ SELECT cidade, AVG(salario), MAX(salario), COUNT(salario), SUM(salario)
 from cliente
 group by cidade
 
+INSERT INTO emprestimo(valor_total, quantidade_parcela) VALUES (10000, 5)
+INSERT INTO emprestimo(valor_total, quantidade_parcela) VALUES (50000, 5)
+INSERT INTO emprestimo(valor_total, quantidade_parcela, data_emprestimo) VALUES (30000, 5, '2022-01-01)
 
 
+
+INSERT INTO cliente_emprestimo VALUES(1, 1)
+INSERT INTO cliente_emprestimo VALUES(2, 2)
+INSERT INTO cliente_emprestimo VALUES(3, 2)
+INSERT INTO cliente_emprestimo VALUES(4, 3)
+INSERT INTO cliente_emprestimo VALUES(5, 3)
+
+
+
+select c.cidade, SUM(e.valor_total), MIN(e.valor_total), MAX(e.valor_total), AVG(e.valor_total)
+from cliente c
+join cliente_emprestimo ce on c.id = ce.id_cliente
+join emprestimo e on ce.id_emprestimo = e.id
+group by c.cidade
+
+
+select c.nome, c.salario, c.cidade, e.valor_total, e.data_emprestimo 
+from cliente c
+join cliente_emprestimo ce on c.id = ce.id_cliente
+join emprestimo e on ce.id_emprestimo = e.id
+
+
+update cliente set endereco = 'Rua xyz', salario = 10000 where cidade = 'SP' and salario = 5000
+
+
+select e.id, e.valor_total, SUM(p.valor), COUNT(p.id)
+from emprestimo e 
+ join parcela p on e.id = p.id_emprestimo 
+group by e.id
+
+select e.id, e.valor_total, SUM(p.valor), COUNT(p.id)
+from emprestimo e 
+left join parcela p on e.id = p.id_emprestimo 
+group by e.id
+
+select e.id, e.valor_total, SUM(p.valor), COUNT(p.id)
+from emprestimo e 
+right join parcela p on e.id = p.id_emprestimo 
+group by e.id
 
