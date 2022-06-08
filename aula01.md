@@ -180,8 +180,9 @@ Linguagem de manipulação de dados
 
 
 
+
     CREATE TABLE cliente (
-        id integer PRIMARY KEY,
+        id integer PRIMARY KEY AUTO_INCREMENT,
         nome varchar(100) NOT NULL,
         cpf varchar(11) UNIQUE,
         salario float NOT NULL,
@@ -189,7 +190,7 @@ Linguagem de manipulação de dados
     );
 
     CREATE TABLE emprestimo (
-        id integer PRIMARY KEY,
+        id integer PRIMARY KEY AUTO_INCREMENT,
         valor_total float NOT NULL,
         quantidade_parcela integer NOT NULL,
         data_emprestimo TIMESTAMP
@@ -204,7 +205,7 @@ Linguagem de manipulação de dados
     );
 
     CREATE TABLE parcela (
-        id integer PRIMARY KEY,
+        id integer PRIMARY KEY AUTO_INCREMENT,
         valor float NOT NULL,
         data_pagamento TIMESTAMP,
         num_sequencial integer NOT NULL,
@@ -213,6 +214,28 @@ Linguagem de manipulação de dados
     );
 
 
+
+INSERT INTO cliente VALUES(1,'Eduardo', '123', 5000, 'Rua x')
+
+INSERT INTO cliente(id, nome, cpf, salario) VALUES (2, 'Joao', '12345', 10000)
+
+INSERT INTO cliente(id, nome, salario) VALUES (3, 'Luiz', 10000)
+
+
+SELECT nome, cpf
+FROM cliente
+WHERE salario > 10000
+
+SELECT MAX(salario), MIN(salario), AVG(salario), COUNT(salario), SUM(salario)
+from cliente
+
+ALTER TABLE cliente ADD COLUMN cidade VARCHAR(100)
+
+UPDATE cliente set cidade = 'RJ' where id >= 4
+
+SELECT cidade, AVG(salario), MAX(salario), COUNT(salario), SUM(salario)
+from cliente
+group by cidade
 
 
 
