@@ -1,7 +1,9 @@
 # Aula
 
 1 - MySQL e SQL
+
 2 - Conexão do banco de dados com Java
+
 3 - MongoDB
 
 # Banco de Dados
