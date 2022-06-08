@@ -1,3 +1,9 @@
+# Aula
+
+1 - MySQL e SQL
+2 - Conexão do banco de dados com Java
+3 - MongoDB
+
 # Banco de Dados
 
 Armazenar e recuperar dados
@@ -6,23 +12,17 @@ Bancos de dados relacionais - Tabelas e Relacionamentos
 
 Bancos de dados não relacionais - Documentos, grafos, ...
 
-PostgreSQL - Banco de dados relacional open source
+MySQL - Banco de dados relacional open source
 
 ## Links
 
-https://www.postgresql.org/
+https://www.mysql.com/
 
 https://dbeaver.io/download/
 
-https://www.elephantsql.com/
+https://hub.docker.com/_/mysql
 
-https://hub.docker.com/_/postgres
-
-https://www.postgresql.org/docs/current/sql-commands.html
-
-## Instalação com Docker
-
-docker run --name postgres-2 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+https://dev.mysql.com/doc/refman/8.0/en/
 
 ## Problema
 
@@ -118,3 +118,65 @@ Linguagem de manipulação de dados
 3) Busque apenas os emprestimos que tenham mais de três parcelas.
 
 4) Faça uma consulta que some todos os valores das parcelas de um emprestimo.
+
+### DDL
+
+        create table pessoa (
+          id serial PRIMARY KEY,
+          nome varchar(100) NOT NULL,
+          cpf varchar(11) UNIQUE,
+          salario float CHECK(salario > 0),
+          endereco varchar(100) not null
+        );
+
+         create table emprestimo (
+          id serial PRIMARY KEY,
+          valor float NOT NULL,
+          num_parcelas integer,
+          data_emprestimo TIMESTAMP,
+          status varchar(100) not null default 'ABERTO'
+        );
+
+
+        CREATE TABLE parcela (
+          id serial PRIMARY KEY,
+          valor float NOT NULL,
+          num varchar(11) UNIQUE,
+          status varchar(100) not null default 'ABERTO',
+          data_pagamento TIMESTAMP,
+          id_emprestimo integer references emprestimo(id)
+        );
+
+       create table pessoa_emprestimo(
+            id_pessoa integer references pessoa(id),
+            id_emprestimo integer references emprestimo(id),
+            primary key(id_pessoa, id_emprestimo)
+       );
+    
+      drop table pessoa_emprestimo ;
+      drop table parcela;
+      drop table pessoa ;
+      drop table emprestimo;
+
+### DML
+
+      insert into pessoa(nome, c    pf, salario) values('Eduardo', '123', 5000);
+      insert into emprestimo(valor, num_parcelas, data_emprestimo) values(10000, 10, '2022-01-01');
+
+      insert into pessoa_emprestimo values(1, 1);
+
+      insert into parcela(valor, num, id_emprestimo) values(2200,1,1);
+      insert into parcela(valor, num, id_emprestimo) values(2200,2,1);
+      insert into parcela(valor, num, id_emprestimo) values(2200,3,1);
+      insert into parcela(valor, num, id_emprestimo) values(2200,4,1);
+      insert into parcela(valor, num, id_emprestimo) values(2200,5,1);
+      
+## Links
+
+https://spring.io/guides/gs/accessing-data-jpa/
+
+https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa/2.6.4
+
+
+      
+
