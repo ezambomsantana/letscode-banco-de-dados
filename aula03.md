@@ -11,7 +11,7 @@ Definir o banco de dados a ser utilizado:
     
 Inserir um documento em uma coleção
 
-    db.cliente.insertOne({
+    db.pessoas.insertOne({
       "_id": 1,
       "nome": "Eduardo",
       "idade": 36,
